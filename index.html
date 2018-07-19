@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Job description</title>
+</head>
+<body>
+    <section>
+        <h3>Goal</h3>
+        <p>To create a simple restricted area with 2 levels of access, using the given HTML files.</p>
+    </section>
+    <section>
+        <h3>Requirements / details</h3>
+        <ul>
+            <li>
+                There will be 2 types of users: the Administrator user and the Staff user. They will both access the protected area 
+                through a <a target="_blank" href="html/login.html">login form</a> page.
+            </li>
+            <li>
+                The Administrator will manage Staff users and assign them "policies", which are like client accounts. Each policy belongs
+                to one Staff user (or none). The Staff user will only see his assigned policies.
+            </li>
+            <li>
+                <strong>Administrator</strong>:
+                <ul>
+                    <li>
+                        When logging in will be taken to the 
+                        <a target="_blank" href="html/ifa-admin-all-staff.html">Staff list</a> page.
+                        This page shows a list of all current Staff users.
+                    </li>
+                    <li>
+                        To create new Staff users the Administrator has to use the "Create account" button, which will
+                        ask for a name and email. This will send an email with a unique link that the recipient will use
+                        to create a Staff user account.
+                    </li>
+                    <li>
+                        Clicking on a row on the Staff list page will take the admin to the 
+                        <a target="_blank" href="html/ifa-admin-edit-staff.html">Staff details</a> page.
+                    </li>
+                    <li>
+                        The Staff detail page will show some basic details about the Staff and the list of policies assigned to him. From there
+                        the Administrator can add policy (from a list of existing unallocated ones) or remove existing ones (which will unlink the
+                        policy from that Staff user and will make it available for allocation).
+                    </li>
+                    <li>
+                        The "Remove Staff" option will remove the user (soft delete) and unlink all his policies.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>Staff</strong>:
+                <ul>
+                    <li>
+                        When logging in will be taken to the 
+                        <a target="_blank" href="html/ifa-staff-dashboard.html">Staff dashboard</a> page, which will display
+                        a list of his policies.
+                    </li>
+                    <li>
+                        Clicking on a row on the list of policies will the user to a simple page (nothing fancy) that will display the details
+                        of that policy (same information as the table, read only).
+                    </li>
+                </ul>
+            </li>
+            <li>
+                The file "policies.sql" contains a basic table for the policies (to be changed if required), that is assumed
+                to contain data to be used as explained above (dummy data can be used for testing).
+            </li>
+            <li>
+                Dependecies (if any) should be managed with Composer.
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
