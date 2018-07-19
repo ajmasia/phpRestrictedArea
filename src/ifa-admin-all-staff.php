@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    
+    if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false ) {
+        echo "Esta pagina es solo para usuarios registrados.<br>";
+        exit;
+    } 
+?>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,7 +72,7 @@
                                     <img src="assets/images/users/avatar.jpg" alt="user" class="rounded-circle"> <h5 class="text-overflow"><small>IFA Administrator</small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="../src/logout.php" class="dropdown-item notify-item">
                                         <i class="zmdi zmdi-power"></i> <span>Logout</span>
                                     </a>
 

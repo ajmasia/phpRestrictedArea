@@ -14,7 +14,7 @@
         if ($search_user->rowCount() == 1) {
             // User exist
             $response['error'] = 'User already exist in database';
-            $response['is_login'] = false;
+            $response['is_loged'] = false;
         } else {
             // User do not exits
             // Hash password
@@ -26,9 +26,12 @@
             $new_user->execute();
 
             $user_id = $con->lastInsertId();
+            session_start();
+            $_SESSION['is_loged'] = true;
             $_SESSION['user_id'] = (int) $user_id;
-            $response['redirect'] = '../src/ifa-admin-all-staff.html';
-            $response['is_login'] = true;
+            $response['redirect'] = '../src/ifa-admin-all-staff.php';
+            $response['is_loged'] = true;
+            
         }
         echo json_encode($response);
     } else {
