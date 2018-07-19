@@ -1,5 +1,5 @@
 <?php
-    require_once '../includes/db_connect.php';
+    require_once '../db/db_connect.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-Type: application/json');
@@ -29,7 +29,7 @@
             session_start();
             $_SESSION['is_loged'] = true;
             $_SESSION['user_id'] = (int) $user_id;
-            $response['redirect'] = '../src/ifa-admin-all-staff.php';
+            $response['redirect'] = '../views/ifa-admin-all-staff.php';
             $response['is_loged'] = true;
             
         }

@@ -13,13 +13,13 @@
         <title>Login</title>
 
         <!-- Bootstrap CSS -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./src/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App CSS -->
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="./src/assets/css/style.css" rel="stylesheet" type="text/css" />
 
         <!-- Modernizr js -->
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="./src/assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -79,22 +79,20 @@
 
         </div>
 
-        <script>
-            var resizefunc = [];
-        </script>
+        <script>var resizefunc = [];</script>
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/plugins/switchery/switchery.min.js"></script>
+        <script src="./src/assets/js/jquery.min.js"></script>
+        <script src="./src/assets/js/popper.min.js"></script>  
+        <script src="./src/assets/js/bootstrap.min.js"></script>
+        <script src="./src/assets/js/detect.js"></script>
+        <script src="./src/assets/js/waves.js"></script>
+        <script src="./src/assets/js/jquery.nicescroll.js"></script>
+        <script src="./src/assets/plugins/switchery/switchery.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../src/assets/js/jquery.core.js"></script>
+        <script src="../src/assets/js/jquery.app.js"></script>
 
     </body>
 </html>

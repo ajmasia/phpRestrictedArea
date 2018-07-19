@@ -6,17 +6,17 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         <title>Dashboard</title>
 
-        <link rel="stylesheet" type="text/css" href="assets/plugins/morris/morris.css" />
-        <link rel="stylesheet" type="text/css" href="assets/plugins/switchery/switchery.min.css"/>
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../assets/plugins/morris/morris.css" />
+        <link rel="stylesheet" type="text/css" href="../assets/plugins/switchery/switchery.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css"/>
         
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
         <!-- Modernizr js -->
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="../assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -156,31 +156,29 @@
 
 
 
-        <script>
-            var resizefunc = [];
-        </script>
+        <script>var resizefunc = [];</script>
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/plugins/switchery/switchery.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/plugins/switchery/switchery.min.js"></script>
 
         <!--Morris Chart-->
-        <script src="assets/plugins/morris/morris.min.js"></script>
-        <script src="assets/plugins/raphael/raphael-min.js"></script>
+        <script src="../assets/plugins/morris/morris.min.js"></script>
+        <script src="../assets/plugins/raphael/raphael-min.js"></script>
 
         <!-- Counter Up  -->
-        <script src="assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
+        <script src="../assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="../assets/plugins/counterup/jquery.counterup.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script>
 
         <!-- Page specific js -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
+        <script src="../assets/pages/jquery.dashboard.js"></script>
     </body>
 </html>
