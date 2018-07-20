@@ -49,9 +49,9 @@ form.addEventListener('submit', function(event) {
         return false;
       }
 
-      //   if (res.redirect !== undefined) {
-      //     window.location = res.redirect;
-      //   }
+      if (res.redirect !== undefined) {
+        window.location = res.redirect;
+      }
     })
     .fail(e => {
       console.log(e);

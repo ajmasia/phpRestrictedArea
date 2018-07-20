@@ -7,7 +7,7 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
 
   // Create form user object
-  var new_user_data = {a
+  var new_user_data = {
     user_name: document.getElementsByName('username')[0].value,
     user_password: document.getElementsByName('password')[0].value
   };
