@@ -1,4 +1,5 @@
 - Create account feature
+- Create status field in users table (important)
 - Asign policy to staff
 - Load data dinamicaly
 - Script to create database

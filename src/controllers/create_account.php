@@ -1,6 +1,5 @@
 <?php
     require_once '../db/db_connect.php';
-    echo json_encode('Create account proccesed');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-Type: application/json');
