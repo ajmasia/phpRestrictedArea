@@ -1,0 +1,7 @@
+- Create account feature
+- Asign policy to staff
+- Load data dinamicaly
+- Script to create database
+- Review app router
+- Refactor code
+- Generate documentation

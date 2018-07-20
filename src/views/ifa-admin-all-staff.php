@@ -259,18 +259,21 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                <div id="msg_error" class="alert alert-danger" role="alert" style="display: none"></div>
+                                    <form name="create-account">
                                         <fieldset class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" class="form-control" required/>
+                                            <input type="text" name="new-account-name" class="form-control" required/>
                                         </fieldset>
                                         
                                         <fieldset class="form-group">
                                             <label>Email</label>
-                                            <input type="email"  name="email" class="form-control" required/>
+                                            <input type="email"  name="new-account-email" class="form-control" required/>
                                         </fieldset>
 
-                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-paper-plane-o"></i> Send</button>
+                                        <button id="send" type="submit" class="btn btn-primary pull-right"><i class="fa fa-paper-plane-o"></i> Send</button>
+                                        
+                                        
                                     </form>
                                     
                                 </div>
@@ -336,9 +339,8 @@
                 });
 
                 table.buttons().container().appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-            } );
-
-        </script>
+            } );</script>
+        <script src="../scripts/create_account.js"></script>
 
     </body>
 </html>
