@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    
+    if ($_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
+        echo "Esta pagina es solo para usuarios registrados.<br>";
+        exit;
+    } 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,17 +17,17 @@
 
         <title>Staff</title>
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-        <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
-        <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
 
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="../assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -58,7 +67,7 @@
                             <li class="list-inline-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar.jpg" alt="user" class="rounded-circle"> <h5 class="text-overflow"><small>IFA Administrator</small> </h5>
+                                    <img src="../assets/images/users/avatar.jpg" alt="user" class="rounded-circle"> <h5 class="text-overflow"><small>IFA Administrator</small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
@@ -375,37 +384,35 @@
 
 
 
-        <script>
-            var resizefunc = [];
-        </script>
+        <script>var resizefunc = [];</script>
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/plugins/switchery/switchery.min.js"></script>
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/plugins/switchery/switchery.min.js"></script>
 
         <!-- Required datatable js -->
-        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
         <!-- Buttons examples -->
-        <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="assets/plugins/datatables/jszip.min.js"></script>
-        <script src="assets/plugins/datatables/pdfmake.min.js"></script>
-        <script src="assets/plugins/datatables/vfs_fonts.js"></script>
-        <script src="assets/plugins/datatables/buttons.html5.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.print.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.colVis.min.js"></script>
+        <script src="../assets/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="../assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="../assets/plugins/datatables/jszip.min.js"></script>
+        <script src="../assets/plugins/datatables/pdfmake.min.js"></script>
+        <script src="../assets/plugins/datatables/vfs_fonts.js"></script>
+        <script src="../assets/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="../assets/plugins/datatables/buttons.print.min.js"></script>
+        <script src="../assets/plugins/datatables/buttons.colVis.min.js"></script>
         <!-- Responsive examples -->
-        <script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
+        <script src="../assets/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="../assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -419,8 +426,7 @@
 
                 table.buttons().container().appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
             });    
-
-        </script>
+</script>
 
     </body>
 </html>

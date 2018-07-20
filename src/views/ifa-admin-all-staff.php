@@ -1,7 +1,7 @@
 <?php
     session_start();
     
-    if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false ) {
+    if ($_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
         echo "Esta pagina es solo para usuarios registrados.<br>";
         exit;
     } 
@@ -67,7 +67,9 @@
                             <li class="list-inline-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="../assets/images/users/avatar.jpg" alt="user" class="rounded-circle"> <h5 class="text-overflow"><small>IFA Administrator</small> </h5>
+                                    <img src="../assets/images/users/avatar.jpg" alt="user" class="rounded-circle"> <h5 class="text-overflow"><small>
+                                        <?php echo $_SESSION['user_name'] ?>
+                                    </small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
                                     <a href="../controllers/logout.php" class="dropdown-item notify-item">
@@ -320,8 +322,8 @@
         <script src="../assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {

@@ -38,7 +38,7 @@
                                 <h4 class="text-muted text-uppercase m-b-0 m-t-0">Sign In</h4>
                             </div>
                         </div>
-                        <form class="m-t-20" action="index.html" data-parsley-validate>
+                        <form name="sing-in" class="m-t-20" action="index.html" data-parsley-validate>
 
                             <div class="form-group row">
                                 <div class="col-12">
@@ -65,11 +65,12 @@
 
                             <div class="form-group text-center row m-t-10">
                                 <div class="col-12">
-                                    <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Log In</button>
+                                    <button id="send" class="btn btn-success btn-block waves-effect waves-light" type="submit">Log In</button>
                                 </div>
                             </div>
 
                         </form>
+                        <div id="msg_error" class="alert alert-danger" role="alert" style="display: none"></div>
 
                     </div>
 
@@ -91,8 +92,9 @@
         <script src="./src/assets/plugins/switchery/switchery.min.js"></script>
 
         <!-- App js -->
-        <script src="../src/assets/js/jquery.core.js"></script>
-        <script src="../src/assets/js/jquery.app.js"></script>
+        <script src="./src/assets/js/jquery.core.js"></script>
+        <script src="./src/assets/js/jquery.app.js"></script>
+        <script src="./src/scripts/sing_in.js"></script>
 
     </body>
 </html>

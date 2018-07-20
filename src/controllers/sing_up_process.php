@@ -4,6 +4,8 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-Type: application/json');
         $response = [];
+
+        // Get data
         $user_name = $_POST['user_name'];
 
         // Check if user already exist
@@ -12,10 +14,14 @@
         $search_user->execute();
 
         if ($search_user->rowCount() == 1) {
+            
             // User exist
+            // Create response error data
             $response['error'] = 'User already exist in database';
             $response['is_loged'] = false;
+
         } else {
+            
             // User do not exits
             // Hash password
             $user_password = password_hash($_POST['user_password'], PASSWORD_DEFAULT);
@@ -26,15 +32,25 @@
             $new_user->execute();
 
             $user_id = $con->lastInsertId();
+            
+            // Start new session
             session_start();
             $_SESSION['is_loged'] = true;
             $_SESSION['user_id'] = (int) $user_id;
+            $_SESSION['user_roll'] = 'admin';
+            $_SESSION['user_name'] = $user_name;
+
+            // Create response data
             $response['redirect'] = '../views/ifa-admin-all-staff.php';
             $response['is_loged'] = true;
             
         }
+
         echo json_encode($response);
+    
     } else {
+    
         exit('Get out!');
+    
     }
 ?>
