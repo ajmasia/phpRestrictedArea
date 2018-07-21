@@ -1,10 +1,10 @@
 <?php
-require_once '../controllers/users.php';
+    require_once '../controllers/users.php';
 
     session_start();
     
-    if ($_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
-        echo "Esta pagina es solo para usuarios registrados.<br>";
+    if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
+        echo "Access denied. You do not have permission to access this page.";
         exit;
     } 
 ?>
