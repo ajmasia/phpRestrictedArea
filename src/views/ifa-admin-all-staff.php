@@ -1,4 +1,6 @@
 <?php
+require_once '../controllers/users.php';
+
     session_start();
     
     if ($_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
@@ -141,108 +143,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php foreach ($result as $row) { ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
+                                        <td><?php echo $row['user_name']; ?></td>
+                                        <td><?php echo $row['user_email']; ?></td>
+                                        <td>Not implemented yet</td>
+
+                                        
+                                        <td><span class="<?php echo $class = ($row['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $row['user_status']; ?></span></td>
                                     </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brielle Williamson</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Herrod Chandler</td>
-                                        <td>email@example.com</td>
-                                        <td>-</td>
-                                        <td><span class="label label-info">Invitation Sent</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rhona Davidson</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Colleen Hurst</td>
-                                        <td>email@example.com</td>
-                                        <td>-</td>
-                                        <td><span class="label label-info">Invitation Sent</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonya Frost</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jena Gaines</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quinn Flynn</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Charde Marshall</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Haley Kennedy</td>                                        
-                                        <td>email@example.com</td>
-                                        <td>-</td>
-                                        <td><span class="label label-info">Invitation Sent</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tatyana Fitzpatrick</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Silva</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Paul Byrd</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gloria Little</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bradley Greer</td>
-                                        <td>email@example.com</td>
-                                        <td>27/09/2017</td>
-                                        <td><span class="label label-success">Active</span></td>
-                                    </tr>
+                                <?php } ?>
+
                                 </tbody>
                             </table>
                         </div>
