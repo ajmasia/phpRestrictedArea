@@ -1,6 +1,5 @@
 // Get form elements
 var form = document.getElementsByName('sing-in')[0];
-var submitButton = document.getElementById('send');
 
 // Add submit event listener
 form.addEventListener('submit', function(event) {
@@ -33,7 +32,7 @@ form.addEventListener('submit', function(event) {
       }
 
       if (res.redirect !== undefined) {
-        window.location = res.redirect;
+          = res.redirect;
       }
     })
     .fail(e => {

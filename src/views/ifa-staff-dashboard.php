@@ -129,7 +129,7 @@
                                 <h3>Policies</h3>
                             </div>
 
-                            <table class="table table-striped table-hover">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Policy</th>

@@ -133,7 +133,7 @@
                                 <h3>Staff <button class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#sendInvitation"><i class="fa fa-plus"></i> Create Account</button></h3>
                             </div>
 
-                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -144,7 +144,7 @@
                                 </thead>
                                 <tbody>
                                 <?php foreach ($result as $row) { ?>
-                                    <tr>
+                                    <tr id="<?php echo $row['user_id']; ?>" class="row-link">
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['user_email']; ?></td>
                                         <td>Not implemented yet</td>
@@ -240,18 +240,9 @@
         <script src="../assets/js/jquery.app.js"></script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('#datatable').DataTable();
-
-                //Buttons examples
-                var table = $('#datatable-buttons').DataTable({
-                    lengthChange: false
-                    //buttons: ['copy', 'excel', 'pdf']
-                });
-
-                table.buttons().container().appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
-            } );</script>
+            </script>
         <script src="../scripts/create_account.js"></script>
+        <script src="../scripts/staff_table.js"></script>
 
     </body>
 </html>
