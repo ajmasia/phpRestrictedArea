@@ -1,6 +1,5 @@
 // Get form elements
 var form = document.getElementsByName('sing-up')[0];
-var submitButton = document.getElementById('send');
 
 // Add submit event listener
 form.addEventListener('submit', function(event) {

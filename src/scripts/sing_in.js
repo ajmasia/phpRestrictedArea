@@ -2,8 +2,8 @@
 var form = document.getElementsByName('sing-in')[0];
 
 // Add submit event listener
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+form.addEventListener('submit', e => {
+  e.preventDefault();
 
   // Create form user object
   var user_data = {
@@ -32,7 +32,7 @@ form.addEventListener('submit', function(event) {
       }
 
       if (res.redirect !== undefined) {
-          = res.redirect;
+        window.location = res.redirect;
       }
     })
     .fail(e => {

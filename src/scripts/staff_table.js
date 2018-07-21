@@ -16,9 +16,9 @@ $(document).ready(function() {
 
 // Row click redir
 var rows = document.querySelectorAll('.row-link');
+
 rows.forEach(row =>
   row.addEventListener('click', e => {
-    console.log(row.id);
-    window.location = `ifa-staff-dashboard.php?id=${row.id}`;
+    window.location = `ifa-admin-edit-staff.php?id=${row.id}`;
   })
 );

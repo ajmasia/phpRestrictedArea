@@ -148,8 +148,6 @@
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['user_email']; ?></td>
                                         <td>Not implemented yet</td>
-
-                                        
                                         <td><span class="<?php echo $class = ($row['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $row['user_status']; ?></span></td>
                                     </tr>
                                 <?php } ?>
@@ -239,8 +237,7 @@
         <script src="../assets/js/jquery.core.js"></script>
         <script src="../assets/js/jquery.app.js"></script>
 
-        <script type="text/javascript">
-            </script>
+    
         <script src="../scripts/create_account.js"></script>
         <script src="../scripts/staff_table.js"></script>
 
