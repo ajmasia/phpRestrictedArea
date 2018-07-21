@@ -2,7 +2,11 @@
     session_start();
     
     if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false) {
-        echo "Esta pagina es solo para usuarios registrados.<br>";
+        echo "Access denied. You do not have permission to access this page.";
+        exit;
+    } 
+    if ($_SESSION['user_status'] == 'Invitation Sent') {
+        echo "You must verify your user registration through the link that you received by mail.";
         exit;
     } 
 ?>

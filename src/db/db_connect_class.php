@@ -8,8 +8,9 @@ require_once '../app_config.php';
             try {
 
                 self::$con = new PDO(
-                    'mysql:charset=utf8mb4; host=localhost; port=8889; dbname=pirahna_db',
-                    'root', 'root');
+                    DSN,
+                    USER_NAME, 
+                    PASSWORD);
                 self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$con->setAttribute(PDO::ATTR_PERSISTENT, false);
             

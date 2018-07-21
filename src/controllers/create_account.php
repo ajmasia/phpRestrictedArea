@@ -27,7 +27,7 @@
             // Hash password
             $user_password = password_hash('supersegura', PASSWORD_DEFAULT);
 
-            $new_user = $con->prepare("INSERT INTO users (user_name, user_email, user_password, user_roll) VALUES (:user_name, :user_email, :user_password, 'staff')");
+            $new_user = $con->prepare("INSERT INTO users (user_name, user_email, user_password, user_roll, user_status) VALUES (:user_name, :user_email, :user_password, 'staff', 'Invitation Sent')");
             $new_user->bindParam(':user_name', $user_name, PDO::PARAM_STR);
             $new_user->bindParam(':user_email', $user_email, PDO::PARAM_STR);
             $new_user->bindParam(':user_password', $user_password, PDO::PARAM_STR);

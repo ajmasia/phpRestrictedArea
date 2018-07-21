@@ -22,6 +22,7 @@
             $user_id = (int) $user['user_id'];
             $user_roll = (string) $user['user_roll'];
             $password = (string) $user['user_password'];
+            $use_status = (string) $user['user_status'];
             
             // Check password
             if (password_verify($user_password, $password)) {
@@ -32,6 +33,7 @@
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $user_name;
                 $_SESSION['user_roll'] = $user_roll;
+                $_SESSION['user_status'] = $use_status;
                 
                 // Create response data
                 $response['is_loged'] = true;
