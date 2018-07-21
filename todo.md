@@ -1,8 +1,6 @@
-- Create account feature
-- Create status field in users table (important)
-- Asign policy to staff
 - Load data dinamicaly
+- Asign policy to staff
+- App router
 - Script to create database
-- Review app router
 - Refactor code
 - Generate documentation

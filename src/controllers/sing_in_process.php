@@ -22,26 +22,33 @@
             $user_id = (int) $user['user_id'];
             $user_roll = (string) $user['user_roll'];
             $password = (string) $user['user_password'];
-            $use_status = (string) $user['user_status'];
+            $user_status = (string) $user['user_status'];
+            
             
             // Check password
             if (password_verify($user_password, $password)) {
                 
-                // Start new session
-                session_start();
-                $_SESSION['is_loged'] = true;
-                $_SESSION['user_id'] = $user_id;
-                $_SESSION['user_name'] = $user_name;
-                $_SESSION['user_roll'] = $user_roll;
-                $_SESSION['user_status'] = $use_status;
-                
-                // Create response data
-                $response['is_loged'] = true;
+                if ($user_status == 'Active') {
+                    
+                    // Start new session
+                    session_start();
+                    $_SESSION['is_loged'] = true;
+                    $_SESSION['user_id'] = $user_id;
+                    $_SESSION['user_name'] = $user_name;
+                    $_SESSION['user_roll'] = $user_roll;
+                    $_SESSION['user_status'] = $user_status;
+                    
+                    // Create response data
+                    $response['is_loged'] = true;
 
-                if ($user_roll == 'admin') {
-                    $response['redirect'] = './src/views/ifa-admin-all-staff.php';
+                    if ($user_roll == 'admin') {
+                        $response['redirect'] = './src/views/ifa-admin-all-staff.php';
+                    } else {
+                        $response['redirect'] = './src/views/ifa-staff-dashboard.php';
+                    }
+
                 } else {
-                    $response['redirect'] = './src/views/ifa-staff-dashboard.php';
+                    $response['error'] = 'Opps! This user is not active yet!';
                 }
             }
 
