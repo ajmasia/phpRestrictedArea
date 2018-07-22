@@ -50,6 +50,28 @@
 
         }
 
+        public function getUserDataActivation($user_activation_key) {
+
+            $query = "SELECT * 
+                        FROM users 
+                        WHERE user_activation_key = '". $user_activation_key. "' LIMIT 1";
+
+            $result = $this->connection->query($query);
+
+            if ($result == false) {
+                return false;
+            }
+
+            $rows = array();
+
+            while ($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+
+            return $rows;
+
+        }
+
         public function getSelectedUserData($user_id) {
 
             $query = "SELECT * 
@@ -76,6 +98,22 @@
             $query = "DELETE 
                         FROM users 
                         WHERE user_id = ". $user_id;
+
+            $result = $this->connection->query($query);
+
+            if ($result == false) {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        public function updateStatus($user_activation_key) {
+
+            $query = "UPDATE users 
+                        SET user_status = 'Active' 
+                        WHERE user_activation_key = '$user_activation_key'";
 
             $result = $this->connection->query($query);
 

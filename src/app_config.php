@@ -15,9 +15,5 @@
     define('MAIL_SECURITY', 'ssl');
     define('MAIL_USER', 'fswdtesting@gmail.com');
     define('MAIL_PASSWORD', 'Art3san0');
-    
 
-    
-
-        
 ?>
