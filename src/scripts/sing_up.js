@@ -28,7 +28,7 @@ form.addEventListener('submit', function(event) {
 
   // Build ajax requets
   var url =
-    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/sing_up_process.php';
+    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/sing_up_controller.php';
 
   $.ajax({
     type: 'POST',

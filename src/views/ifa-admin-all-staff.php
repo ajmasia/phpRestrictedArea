@@ -1,12 +1,16 @@
 <?php
-    require_once '../controllers/users.php';
 
     session_start();
-    
+
     if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
         echo "Access denied. You do not have permission to access this page.";
         exit;
     } 
+
+    require_once '../models/user_model.php';
+    
+    $user = new User();
+    $user_list = $user->getUsers();
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +78,7 @@
                                     </small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                    <a href="../controllers/logout.php" class="dropdown-item notify-item">
+                                    <a href="../controllers/logout_controller.php" class="dropdown-item notify-item">
                                         <i class="zmdi zmdi-power"></i> <span>Logout</span>
                                     </a>
 
@@ -143,7 +147,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($result as $row) { ?>
+                                <?php foreach ($user_list as $row) { ?>
                                     <tr id="<?php echo $row['user_id']; ?>" class="row-link">
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['user_email']; ?></td>

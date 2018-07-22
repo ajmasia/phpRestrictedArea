@@ -9,8 +9,8 @@
 
     $_SESSION['staff_id'] = $_GET['id'];
     
-    require_once '../controllers/policie_model.php';
-    require_once '../controllers/user_model.php';
+    require_once '../models/policie_model.php';
+    require_once '../models/user_model.php';
 
     $policie = new Policie();
     $user = new User();
@@ -86,7 +86,7 @@
                                 </h5>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                <a href="../controllers/logout.php" class="dropdown-item notify-item">
+                                <a href="../controllers/logout_controller.php" class="dropdown-item notify-item">
                                     <i class="zmdi zmdi-power"></i>
                                     <span>Logout</span>
                                 </a>
@@ -210,7 +210,7 @@
                                                                 Feature not available yet
                                                             </td>
                                                             <td>
-                                                <a href="../controllers/remove_policie_process.php?id=<?php echo $row['policie_id']; ?>" title="Remove" class="text-danger">Remove</a>
+                                                <a href="../controllers/remove_policie_controller.php?id=<?php echo $row['policie_id']; ?>" title="Remove" class="text-danger">Remove</a>
                                             </td>
                                                         </tr>
                                                         <?php } ?>
@@ -225,7 +225,7 @@
 
                                 </div>
                                 <div class="col-6 text-right padded padded-top">
-                                    <a href="../controllers/remove_staff_process.php?id=<?php echo $_GET['id']; ?>" title="Remove User" class="text-danger">
+                                    <a href="../controllers/remove_staff_controller.php?id=<?php echo $_GET['id']; ?>" title="Remove User" class="text-danger">
                                         <i class="fa fa-trash"></i> Remove Staff</a>
                                 </div>
                             </div>

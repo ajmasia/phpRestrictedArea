@@ -1,32 +1,29 @@
 <?php
-    require_once '../db/db_connect.php';
+    require_once '../models/user_model.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-Type: application/json');
 
         $response = [];
-        
-        // Get data
-        $user_name = $_POST['user_name'];
-        $user_password = $_POST['user_password'];
 
-        // Check if user already exist
-        $search_user = $con->prepare("SELECT * FROM users WHERE user_name = :user_name LIMIT 1");
-        $search_user->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-        $search_user->execute();
+        $user = new User();
+        $check_user = $user->getUserData($_POST['user_name']);
 
-        if ($search_user->rowCount() == 1) {
+        if (count($check_user) == 1) {
             
-            // User exist
-            $user = $search_user->fetch(PDO::FETCH_ASSOC);
-            $user_id = (int) $user['user_id'];
-            $user_roll = (string) $user['user_roll'];
-            $password = (string) $user['user_password'];
-            $user_status = (string) $user['user_status'];
+            foreach ($check_user as $res) {
+               
+                $user_name = $res['user_name'];
+                $user_id = $res['user_id'];
+                $user_status = $res['user_status'];
+                $user_roll = $res['user_roll'];
+                $user_password = $res['user_password'];
+
+            }
             
-            
+            // User exist    
             // Check password
-            if (password_verify($user_password, $password)) {
+            if (password_verify($_POST['user_password'], $user_password)) {
                 
                 if ($user_status == 'Active') {
                     

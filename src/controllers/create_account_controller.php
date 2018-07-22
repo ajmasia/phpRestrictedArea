@@ -1,21 +1,22 @@
 <?php
-    require_once '../db/db_connect.php';
+    require_once '../app_config.php';
+    require_once '../models/user_model.php';
     require_once '../../vendor/autoload.php';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Content-Type: application/json');
+        
         $response = [];
 
         // Get data
         $user_name = $_POST['user_name'];
         $user_email = $_POST['user_email'];
 
-        // Check if user already exist
-        $search_user = $con->prepare("SELECT * FROM users WHERE user_name = :user_name LIMIT 1");
-        $search_user->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-        $search_user->execute();
+        // Check if user exist
+        $user = new User();
+        $check_user = $user->getUserData($user_name);
 
-        if ($search_user->rowCount() == 1) {
+        if (count($check_user) == 1) {
             
             // User exist
             // Create response error data
@@ -33,30 +34,27 @@
             }
  
             $temporal_user_password = password_generate(7);
-            $user_password_hasg = password_hash($temporal_user_password, PASSWORD_DEFAULT);
+            $user_password_hash = password_hash($temporal_user_password, PASSWORD_DEFAULT);
             $email_activation_key = md5($user_email. $user_name);
+            
             // create account verification link
             $link = 'http://'. $_SERVER['SERVER_NAME']. ':8888/'. 'piranha_technical_skills_evaluation/src/services/activation.php?key='. $email_activation_key;
 
-            $new_user = $con->prepare("INSERT INTO users (user_name, user_email, user_password, user_roll, user_status, user_activation_key) VALUES (:user_name, :user_email, :user_password, 'staff', 'Invitation Sent', :user_activation_key)");
-            $new_user->bindParam(':user_name', $user_name, PDO::PARAM_STR);
-            $new_user->bindParam(':user_email', $user_email, PDO::PARAM_STR);
-            $new_user->bindParam(':user_password', $user_password_hasg, PDO::PARAM_STR);
-            $new_user->bindParam(':user_activation_key', $email_activation_key, PDO::PARAM_STR);
-            $new_user->execute();
+            // Create new user
+            $user->createUser($user_name, $user_email, $user_password_hash, $email_activation_key);
 
             // Send validation mail
             // Create the Transport
-            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-                ->setUsername('fswdtesting@gmail.com')
-                ->setPassword('Art3san0');
+            $transport = (new Swift_SmtpTransport(MAIL_SERVER, MAIL_PORT, MAIL_SECURITY))
+                ->setUsername(MAIL_USER)
+                ->setPassword(MAIL_PASSWORD);
 
             // Create the Mailer using your created Transport
             $mailer = new Swift_Mailer($transport);
 
             // Create a message
             $message = (new Swift_Message('Pirahna account user mail activation'))
-                ->setFrom(['fswdtesting@gmail.com' => 'Piranha admin'])
+                ->setFrom([MAIL_USER => 'Piranha admin'])
                 ->setTo([$user_email => $user_name])
                 ->setBody('
                     <h2>Pirahna skills evaluation user accound mail activation</h2></br>

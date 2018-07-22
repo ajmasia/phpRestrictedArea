@@ -30,7 +30,7 @@ form.addEventListener('submit', function(event) {
 
   // Build ajax requets
   var url =
-    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/create_account.php';
+    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/create_account_controller.php';
 
   $.ajax({
     type: 'POST',

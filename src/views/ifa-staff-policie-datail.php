@@ -9,7 +9,10 @@
         echo "You must verify your user registration through the link that you received by mail.";
         exit;
     } 
-    require_once '../controllers/policies.php';
+    require_once '../models/policie_model.php';
+
+    $policie = new Policie();
+    $policie_detail = $policie->getPolicieById($_GET['id']);
 ?>
 
 
@@ -76,7 +79,7 @@
                                     </small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                    <a href="../controllers/logout.php" class="dropdown-item notify-item">
+                                    <a href="../controllers/logout_controller.php" class="dropdown-item notify-item">
                                         <i class="zmdi zmdi-power"></i> <span>Logout</span>
                                     </a>
 
@@ -134,15 +137,15 @@
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                         <p>
                                             <h4>Policie: </h4>
-                                            <?php echo $current_user_policies_selected[0]['policie_code']; ?>
+                                            <?php echo $policie_detail[0]['policie_code']; ?>
                                         </p>
                                         <p>
                                             <h4>Plan Reference: </h4>
-                                            <?php echo $current_user_policies_selected[0]['policie_plan_reference']; ?>
+                                            <?php echo $policie_detail[0]['policie_plan_reference']; ?>
                                         </p>
                                         <p>
                                             <h4>Investment House: </h4>
-                                            <?php echo $current_user_policies_selected[0]['policie_investment_house']; ?>
+                                            <?php echo $policie_detail[0]['policie_investment_house']; ?>
                                         </p>
                                     </div>
                                 </div>

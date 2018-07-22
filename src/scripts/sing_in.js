@@ -13,7 +13,7 @@ form.addEventListener('submit', e => {
 
   // Build ajax requets
   var url =
-    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/sing_in_process.php';
+    'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/sing_in_controller.php';
 
   $.ajax({
     type: 'POST',

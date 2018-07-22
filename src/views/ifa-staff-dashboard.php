@@ -9,7 +9,10 @@
         echo "You must verify your user registration through the link that you received by mail.";
         exit;
     } 
-    require_once '../controllers/policies.php';
+    require_once '../models/policie_model.php';
+
+    $policie = new Policie();
+    $user_related_policies = $policie->getPoliciesByUser($_SESSION['user_id']);
 ?>
 
 
@@ -76,7 +79,7 @@
                                     </small> </h5>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                    <a href="../controllers/logout.php" class="dropdown-item notify-item">
+                                    <a href="../controllers/logout_controller.php" class="dropdown-item notify-item">
                                         <i class="zmdi zmdi-power"></i> <span>Logout</span>
                                     </a>
 
@@ -142,8 +145,8 @@
                                 <tbody>
                                     
                                     </tr>
-                                        <?php foreach ($current_staff_available_policies_result as $row) { ?>
-                                                        <tr class="row-link">
+                                        <?php foreach ($user_related_policies as $row) { ?>
+                                                        <tr class="row-link" id="<?php echo $row['policie_id']; ?>">
                                                             <td>
                                                                 <?php echo $row['policie_code']; ?>
                                                             </td>

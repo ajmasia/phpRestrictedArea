@@ -29,7 +29,7 @@ policie_button.forEach(button => {
     console.log(policie_data);
 
     var url =
-      'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/asing_policie_process.php';
+      'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/asing_policie_controller.php';
 
     $.ajax({
       type: 'POST',

@@ -1,5 +1,5 @@
 <?php
-    require_once './policie_model.php';
+    require_once '../models/policie_model.php';
     
     session_start();    
     
