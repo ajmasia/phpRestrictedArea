@@ -31,7 +31,7 @@
             $policie->execute();
 
             echo json_encode('Policie updated correctly.');
-
+            $response['redirect'] = 'ifa-admin-all-staff.php?id='. $_SESSION['staff_id'];
 
         } else {
             echo json_encode('An error ocurred trying asing policie to user');

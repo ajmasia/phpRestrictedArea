@@ -1,17 +1,20 @@
 // Datetable config
 $(document).ready(function() {
   $('#datatable').DataTable();
+});
 
-  //Buttons examples
-  var table = $('#datatable-buttons').DataTable({
-    lengthChange: false
-    //buttons: ['copy', 'excel', 'pdf']
-  });
+// Get url params
+var urlPrams = new URLSearchParams(location.search);
+var staff_id = urlPrams.get('id');
+console.log(staff_id);
 
-  table
-    .buttons()
-    .container()
-    .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
+// Close Add Plicie windows
+var form_asign_policie = document.getElementsByName('asign-policies')[0];
+console.log(form_asign_policie);
+// Add submit event listener
+form_asign_policie.addEventListener('submit', e => {
+  e.preventDefault();
+  window.location = `ifa-admin-edit-staff.php?id=${staff_id}`;
 });
 
 // Get policie id and send to process
@@ -23,6 +26,7 @@ policie_button.forEach(button => {
     var policie_data = {
       policie_id: button.id
     };
+    console.log(policie_data);
 
     var url =
       'http://localhost:8888/piranha_technical_skills_evaluation/src/controllers/asing_policie_process.php';

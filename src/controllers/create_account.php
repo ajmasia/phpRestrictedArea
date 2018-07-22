@@ -74,7 +74,7 @@
             $result = $mailer->send($message);
 
             // Create response data
-            $response['redirect'] = '../views/ifa-admin-all-staff.php';
+            $response['redirect'] = 'ifa-admin-all-staff.php';
             $response['is_loged'] = true;
             
         }

@@ -97,7 +97,7 @@
                         <!-- Navigation Menu-->
                         <ul class="navigation-menu">
                             <li class="active">
-                                <a href="ifa/staff.html" title="Staff"><i class="fa fa-users"></i> <span> Staff</span> </a>
+                                <a href="ifa-admin-all-staff.php" title="Staff"><i class="fa fa-users"></i> <span> Staff</span> </a>
                             </li>
                         </ul>
                         <!-- End navigation menu  -->
@@ -133,7 +133,7 @@
                                 <h3>Staff <button class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#sendInvitation"><i class="fa fa-plus"></i> Create Account</button></h3>
                             </div>
 
-                            <table id="datatable-buttons" class="table table-hover table-bordered" cellspacing="0" width="100%">
+                            <table id="datatable-buttons" class="table table-hover" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -148,7 +148,7 @@
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['user_email']; ?></td>
                                         <td>Not implemented yet</td>
-                                        <td><span class="<?php echo $class = ($row['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $row['user_status']; ?></span></td>
+                                        <td><span class="<?php echo $class = ($row['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $row['user_status']; ?></span> <span class="label label-primary"><?php echo $row['user_roll']; ?></span></td>
                                     </tr>
                                 <?php } ?>
 

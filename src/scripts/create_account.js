@@ -1,7 +1,6 @@
 // Get form elements
 var form = document.getElementsByName('create-account')[0];
-var submitButton = document.getElementById('send');
-
+console.log(form);
 // Add submit event listener
 form.addEventListener('submit', function(event) {
   event.preventDefault();

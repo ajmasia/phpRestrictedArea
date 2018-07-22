@@ -6,7 +6,7 @@ if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false || $_SESSION
     echo "Access denied. You do not have permission to access this page.";
     exit;
 } 
-
+$_SESSION['staff_id'] = $_GET['id'];
 require_once '../controllers/policies.php';
 ?>
 
@@ -102,7 +102,7 @@ require_once '../controllers/policies.php';
                     <!-- Navigation Menu-->
                     <ul class="navigation-menu">
                         <li class="active">
-                            <a href="ifa-admin-all-staff.html" title="Staff">
+                            <a href="ifa-admin-all-staff.php" title="Staff">
                                 <i class="fa fa-users"></i>
                                 <span> Staff</span>
                             </a>
@@ -143,16 +143,17 @@ require_once '../controllers/policies.php';
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Name</label>
-                                    <input type="text" name="firstname" class="form-control" value="Client Name" required/>
+                                    <input type="text" name="firstname" class="form-control" value="<?php echo $current_user_result[0]['user_name']; ?>" required/>
+                                    
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" value="example@email.com" disabled/>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $current_user_result[0]['user_email']; ?>" disabled/>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Status</label>
                                     <br/>
-                                    <span class="label label-info">Invitation Sent</span>
+                                    <span class="<?php echo $class = ($current_user_result[0]['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $current_user_result[0]['user_status']; ?></span> <span class="label label-primary"><?php echo $current_user_result[0]['user_roll']; ?></span>
                                 </div>
                             </div>
                         </form>
@@ -167,7 +168,7 @@ require_once '../controllers/policies.php';
 
                         <div class="col-12">
                             <div class="table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-hover ">
                                     <thead>
                                         <tr>
                                             <th>Policy</th>
@@ -199,7 +200,7 @@ require_once '../controllers/policies.php';
                                                                 Feature not available yet
                                                             </td>
                                                             <td>
-                                                <a href="#" title="Remove" class="text-danger">Remove</a>
+                                                <a href="../controllers/remove_policie_process.php?id=<?php echo $row['policie_id']; ?>" title="Remove" class="text-danger">Remove</a>
                                             </td>
                                                         </tr>
                                                         <?php } ?>
@@ -214,7 +215,7 @@ require_once '../controllers/policies.php';
 
                                 </div>
                                 <div class="col-6 text-right padded padded-top">
-                                    <a href="#" title="Remove User" class="text-danger">
+                                    <a href="../controllers/rename_staff_process.php?id=<?php echo $_GET['id']; ?>" title="Remove User" class="text-danger">
                                         <i class="fa fa-trash"></i> Remove Staff</a>
                                 </div>
                             </div>
@@ -233,10 +234,10 @@ require_once '../controllers/policies.php';
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form name="asign-policies">
                                     <div class="row">
                                         <div class="col-xs-12 col-lg-12">
-                                            <table id="datatable" class="table table-striped table-bordered">
+                                            <table id="datatable" class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>Policy</th>
