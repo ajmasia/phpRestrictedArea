@@ -12,12 +12,12 @@ form.addEventListener('submit', function(event) {
   };
 
   // Validate data
-  if (new_account_data.user_name.length < 6) {
+  if (new_account_data.user_name.length <= 5) {
     document.getElementById('msg_error').style.display = 'block';
     document.getElementById('msg_error').innerHTML =
       'Username must have at least 6 letters';
     return false;
-  } else if (new_account_data.user_email.length < 8) {
+  } else if (new_account_data.user_email.length <= 8) {
     document.getElementById('msg_error').style.display = 'block';
     document.getElementById('msg_error').innerHTML =
       'Email must have at least 8 letters';

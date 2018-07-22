@@ -127,40 +127,26 @@
                     <div class="col-12">
                         <div class="card-box table-responsive">
                             <div class="header">
-                                <h3>Policies</h3>
+                                <h3>Policie Details</h3>
                             </div>
-
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Policy</th>
-                                        <th>Plan Reference</th>
-                                        <th>Member Name</th>
-                                        <th>Investment House</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                    </tr>
-                                        <?php foreach ($current_staff_available_policies_result as $row) { ?>
-                                                        <tr class="row-link">
-                                                            <td>
-                                                                <?php echo $row['policie_code']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $row['policie_plan_reference']; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $row['policie_first_name']. ', '.$row['policie_last_name'] ; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $row['policie_investment_house']; ?>
-                                                            </td>
-                                                            
-                                                        </tr>
-                                                        <?php } ?>
-                                </tbody>
-                            </table>
+                            <div class="col-12 padded padded-bottom padded-la">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                        <p>
+                                            <h4>Policie: </h4>
+                                            <?php echo $current_user_policies_selected[0]['policie_code']; ?>
+                                        </p>
+                                        <p>
+                                            <h4>Plan Reference: </h4>
+                                            <?php echo $current_user_policies_selected[0]['policie_plan_reference']; ?>
+                                        </p>
+                                        <p>
+                                            <h4>Investment House: </h4>
+                                            <?php echo $current_user_policies_selected[0]['policie_investment_house']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,6 +190,5 @@
 
         <!-- Page specific js -->
         <script src="../assets/pages/jquery.dashboard.js"></script>
-        <script src="../scripts/staff_dashboard_table.js"></script>
     </body>
 </html>

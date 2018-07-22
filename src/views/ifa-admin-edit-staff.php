@@ -1,13 +1,23 @@
 <?php
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
-    echo "Access denied. You do not have permission to access this page.";
-    exit;
-} 
-$_SESSION['staff_id'] = $_GET['id'];
-require_once '../controllers/policies.php';
+    if (!isset($_SESSION['is_loged']) || $_SESSION['is_loged'] == false || $_SESSION['user_roll'] != 'admin') {
+        echo "Access denied. You do not have permission to access this page.";
+        exit;
+    } 
+
+    $_SESSION['staff_id'] = $_GET['id'];
+    
+    require_once '../controllers/policie_model.php';
+    require_once '../controllers/user_model.php';
+
+    $policie = new Policie();
+    $user = new User();
+
+    $available_policies_to_asign = $policie->getUnasingPolicies();
+    $available_policies_by_user = $policie->getPoliciesByUser($_GET['id']);
+    $selecteUserData = $user->getSelectedUserData($_GET['id']);
 ?>
 
 <!DOCTYPE html>
@@ -72,11 +82,11 @@ require_once '../controllers/policies.php';
                                 aria-expanded="false">
                                 <img src="../assets/images/users/avatar.jpg" alt="user" class="rounded-circle">
                                 <h5 class="text-overflow">
-                                    <small>IFA Administrator</small>
+                                    <small><?php echo $_SESSION['user_name'] ?></small>
                                 </h5>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="../controllers/logout.php" class="dropdown-item notify-item">
                                     <i class="zmdi zmdi-power"></i>
                                     <span>Logout</span>
                                 </a>
@@ -143,17 +153,17 @@ require_once '../controllers/policies.php';
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Name</label>
-                                    <input type="text" name="firstname" class="form-control" value="<?php echo $current_user_result[0]['user_name']; ?>" required/>
+                                    <input type="text" name="firstname" class="form-control" value="<?php echo $selecteUserData[0]['user_name']; ?>" required/>
                                     
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" value="<?php echo $current_user_result[0]['user_email']; ?>" disabled/>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $selecteUserData[0]['user_email']; ?>" disabled/>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                     <label>Status</label>
                                     <br/>
-                                    <span class="<?php echo $class = ($current_user_result[0]['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $current_user_result[0]['user_status']; ?></span> <span class="label label-primary"><?php echo $current_user_result[0]['user_roll']; ?></span>
+                                    <span class="<?php echo $class = ($selecteUserData[0]['user_status'] == 'Active') ? 'label label-success' : 'label label-info' ?>"><?php echo $selecteUserData[0]['user_status']; ?></span> <span class="label label-primary"><?php echo $selecteUserData[0]['user_roll']; ?></span>
                                 </div>
                             </div>
                         </form>
@@ -182,7 +192,7 @@ require_once '../controllers/policies.php';
                                     <tbody>
                                         
                                         </tr>
-                                        <?php foreach ($user_available_policies_result as $row) { ?>
+                                        <?php foreach ($available_policies_by_user as $row) { ?>
                                                         <tr class="row-link">
                                                             <td>
                                                                 <?php echo $row['policie_code']; ?>
@@ -215,7 +225,7 @@ require_once '../controllers/policies.php';
 
                                 </div>
                                 <div class="col-6 text-right padded padded-top">
-                                    <a href="../controllers/rename_staff_process.php?id=<?php echo $_GET['id']; ?>" title="Remove User" class="text-danger">
+                                    <a href="../controllers/remove_staff_process.php?id=<?php echo $_GET['id']; ?>" title="Remove User" class="text-danger">
                                         <i class="fa fa-trash"></i> Remove Staff</a>
                                 </div>
                             </div>
@@ -249,7 +259,7 @@ require_once '../controllers/policies.php';
                                                 </thead>
 
                                                 <tbody>
-                                                    <?php foreach ($available_policies_result as $row) { ?>
+                                                    <?php foreach ($available_policies_to_asign as $row) { ?>
                                                         <tr class="row-link">
                                                             <td>
                                                                 <?php echo $row['policie_code']; ?>
