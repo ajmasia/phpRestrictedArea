@@ -29,13 +29,13 @@ First of all clone this repo on your server using the next command:
 
 `git clone https://github.com/ajmasia/phpRestrictedArea.git`
 
-This project use external dependeces then yo need run the nex command:
+This project use external dependeces then you need run the next command:
 
 `php composer.phar install`
 
-After clone this repo you must create mysql database. You have to use `piranha_db.sql` instruction.
+Now you must create mysql database. You have to use `piranha_db.sql` instructions attached to this project with data samples.
 
-When you will create the database, you must configure the system parameters editing the file `app_config.php`. Here yo can see an example:
+When you will create the database, you must configure the system parameters editing the file `app_config.php`. You can see here an example:
 
 ```php
 // Database connect
@@ -49,7 +49,7 @@ When you will create the database, you must configure the system parameters edit
     define('MAIL_SERVER', 'smtp.gmail.com');
     define('MAIL_PORT', 465);
     define('MAIL_SECURITY', 'ssl');
-    define('MAIL_USER', 'iser@gmail.com');
+    define('MAIL_USER', 'user@gmail.com');
     define('MAIL_PASSWORD', 'user_password');
 ```
 
