@@ -1,5 +1,11 @@
 # A simple restricted area with PHP & MySQL
 
+![Admin pannel](./Image_01_AJMA_20180722_1.0.png)
+
+![Admin pannel - Detael](./Image_02_AJMA_20180722_1.0.png)
+
+![Admin pannel - Detael - linkin policies](./Image_03_AJMA_20180722_1.0.png)
+
 ## Requirements / details
 
 - There will be 2 types of users: the Administrator user and the Staff user. They will both access the protected area through a login form page.
