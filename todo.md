@@ -1,6 +1,0 @@
-- Load data dinamicaly
-- Asign policy to staff
-- App router
-- Script to create database
-- Refactor code
-- Generate documentation
